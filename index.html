@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wg-fancy-input ">
+        <label class="label">Enter City</label>
+        <input type="text">
+        <span class="close">
+            <svg viewBox="0 0 24 24">
+                <path fill="#555" d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
+            </svg>
+        </span>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+
+            let inputBox = document.querySelector('.wg-fancy-input');
+
+            let input = inputBox.querySelector('input')
+            input.addEventListener('focus', function () {
+                inputBox.classList.add('is-focused');
+            })
+            input.addEventListener('keyup', function () {
+                if (input.value == "") {
+                    inputBox.classList.remove('not-empty')
+                } else {
+                    inputBox.classList.add('not-empty')
+                }
+            })
+            input.addEventListener('blur', function () {
+                if (input.value === '') {
+                    inputBox.classList.remove('is-focused');
+                }
+            })
+
+            let closeBtn = inputBox.querySelector('span.close');
+            closeBtn.addEventListener('click', function (event) {
+                event.stopPropagation()
+                input.value = ""
+                input.focus();
+            })
+        });
+        //CONVERT ALL FUNCTION STATEMENT TO FAT ARROW.
+    </script>
+</body>
+
+</html>
