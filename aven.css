@@ -246,8 +246,6 @@ i.fa-close{
     line-height: 20px;
 }
 
-
-
 label.label-tag.float-label{
     top: -15px;
     color: orange;
@@ -260,7 +258,6 @@ img.imageDim{
     margin: 4px 4px;
 }
 
-
-.fancy-input.not-empty-input i.fa-bg{
+.fancy-input.show-icon i.fa-bg{
     opacity: 1;
 }

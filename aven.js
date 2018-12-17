@@ -20,18 +20,15 @@ window.addEventListener('load', () => {
 
             floatNodeArray.classList.add('float-label')
 
-            inputBox.classList.add('not-empty-input');
+            inputBox.classList.add('show-icon');
             
         });
 
         childNodeArray.addEventListener('blur', () =>{
 
             if(input.value !== ""){
-                inputBox.classList.toggle('focused');       
-            }else{
-                inputBox.classList.remove('float-label');
-            }
-            
+                inputBox.classList.remove('focused');       
+            }         
         });
 
             
