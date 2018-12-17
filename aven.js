@@ -2,58 +2,37 @@
 window.addEventListener('load', () => {
     let inputBoxes = document.querySelectorAll('.fancy-input');
 
-    // let input = inputBoxes.querySelector('input');
-
-
     inputBoxes.forEach(function(inputBox) {
 
-        let childNodeArray = inputBox.children[1];
-        let floatNodeArray = inputBox.children[0];
+        let input = inputBox.children[1];
+        let label = inputBox.children[0];
+        let closeIconBe = inputBox.children[2];
 
-
-        let input = inputBox.querySelectorAll('input');
-        
-
-        childNodeArray.addEventListener('focus', () =>{
+        input.addEventListener('focus', () =>{
 
             inputBox.classList.add('focused');
 
-            floatNodeArray.classList.add('float-label')
+            label.classList.add('float-label')
 
             inputBox.classList.add('show-icon');
             
         });
 
-        childNodeArray.addEventListener('blur', () =>{
-
-            if(input.value !== ""){
-                inputBox.classList.remove('focused');       
-            }         
+        input.addEventListener('blur', () =>{
+            console.log('bluring', input.value)
+            if(input.value === "") {
+                inputBox.classList.remove('focused');    
+                label.classList.remove('float-label');
+                inputBox.classList.remove('show-icon');
+            }
         });
 
-            
+        if(closeIconBe)
+        closeIconBe.addEventListener('click', function (event) {
+            event.stopPropagation()
+            input.value = ''
+            input.focus();
+        })
     });
-
-      inputBoxes.forEach(function(inputDiv){
-        let closeIconBe = inputDiv.children[2];
-
-        // console.log(closeIconBe);
-
-        if(closeIconBe){
-
-            closeIconBe.addEventListener('click', function(event){
-                let input = closeIconBe.parentElement.children[1];
-            // console.log(input);
-                event.stopPropagation()
-                input.value = ''
-                input.focus();
-            })
-        }
-
-
-      })
-
-
-   
     
 });
